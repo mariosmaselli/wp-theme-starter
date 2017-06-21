@@ -3,12 +3,12 @@
 	        window.APP = window.APP || {};
 	        APP.VARS = {};
 	        APP.BASE_URL = '<?php echo site_url(); ?>';
-	        APP.THEME_URL = '<?php echo get_template_directory(); ?>';
+	        APP.THEME_URL = '<?php echo get_stylesheet_directory_uri(); ?>';
 	        //APP.AJAX_URL = '{{ function('admin_url', 'admin-ajax.php') }}';
 
         </script>
 
-        <script type="text/javascript" src="<?php echo get_template_directory(); ?>/build/app.js"></script>
+        <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/build/app.js"></script>
         
         <script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

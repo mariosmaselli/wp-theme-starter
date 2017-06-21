@@ -29,6 +29,7 @@ class Site {
 		add_action( 'init', array( $this, 'initAction' ) );
 		add_action( 'wp_footer', 'deregister_scripts' );
 		add_action( 'admin_menu', 'emersonthis_custom_menu_page_removing' );
+		//add_action( 'wp_head', 'show_me_the_template_butthead_hehe' );
 
 		remove_action( 'wp_head', 'rest_output_link_wp_head');
         remove_action( 'wp_head', 'wp_oembed_add_discovery_links');
@@ -42,9 +43,13 @@ class Site {
 		remove_action('wp_head', 'rsd_link');
 		remove_action('wp_head', 'wp_generator');
 
+		register_nav_menu('primary-nav', __('Primary Nav', 'yoursite'));
+
 		if( function_exists('acf_add_options_page') ) {
 	        acf_add_options_page();
 	    }
+
+	    $this->detect = new Mobile_Detect;
 
 	}
 
@@ -88,6 +93,25 @@ function emersonthis_custom_menu_page_removing() {
 
   
 }
+
+// function show_me_the_template_butthead_hehe() {
+//   global $template, $current_user, $wp_admin_bar;
+  
+//   if ( !is_user_logged_in() && $current_user->ID != '1' ) 
+//     return;
+//   if ( is_admin_bar_showing() )
+//     $wp_admin_bar->add_menu( array(
+//       'parent' => false,
+//       'id' => 'template',
+//       'title' => $template,
+//       'href' => '#'
+//   ));
+//   else
+//     print_r( $template );
+// }
+
+
+
 
 
 
